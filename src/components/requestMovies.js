@@ -17,7 +17,7 @@ function RequestMovie(props) {
     useEffect(() => {
         const options = {
             method: 'GET',
-            url: `http://www.omdbapi.com/?apikey=d5338ddc&s=${props.searchValue}`,
+            url: `https://www.omdbapi.com/?apikey=d5338ddc&s=${props.searchValue}`,
         };
         axios.request(options).then(function (response) {
             console.log(response.data.Error)

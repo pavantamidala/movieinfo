@@ -12,7 +12,7 @@ function Movie(props) {
     useEffect(() => {
         const options = {
             method: 'GET',
-            url: `http://www.omdbapi.com/?apikey=d5338ddc&i=${urlHistory.id}`,
+            url: `https://www.omdbapi.com/?apikey=d5338ddc&i=${urlHistory.id}`,
         };
         axios.request(options).then(function (response) {
 
