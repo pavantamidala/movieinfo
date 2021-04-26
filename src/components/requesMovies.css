@@ -1,0 +1,31 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.card {
+  margin: 10px;
+  border: 1px solid black; 
+}
+
+.card:hover {
+  background-color:aquamarine
+}
+
+.poster{
+    min-width: 200px;
+    max-height: 350px;
+}
+.container{
+  display: grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,330px));
+  align-content: center;
+  justify-content: center;
+  width: 100vw;
+}
+
+.warning{
+  color:crimson;
+}

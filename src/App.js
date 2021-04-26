@@ -1,24 +1,18 @@
-import logo from './logo.svg';
+import RequestMovie from './components/requestMovies'
 import './App.css';
+import SearchBar from './components/searchBar'
+import { useState } from 'react';
 
 function App() {
+  const [searchValue,setSearchValue] = useState('batman')
+  const [loading, setLoading] = useState("")
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <SearchBar searchValue={searchValue} setSearchValue={setSearchValue} />
+      <h4 className="warning"> {loading} </h4>
+      <RequestMovie loading={loading} setLoading={setLoading}  searchValue={searchValue}  />
+          </div>
   );
 }
 

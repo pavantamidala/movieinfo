@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.single-movie-container{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    border: 1px solid black;
+    margin: 20px;
+}
+.single-img{
+    min-width: 200px;
+    max-height: 350px;
+}
+.image-div{
+    align-self: center;
+    justify-self: center;
+    margin-top: 20px;
+}
+.details{
+    border-left: 1px solid black;
+}
+p{
+    padding: 2px;
+}
+@media (max-width:700px){
+    .single-movie-container{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+    .details{
+        border-top:1px solid black ;
+    }
+}
