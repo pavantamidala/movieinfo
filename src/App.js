@@ -4,7 +4,7 @@ import SearchBar from './components/searchBar'
 import { useState } from 'react';
 
 function App() {
-  const [searchValue,setSearchValue] = useState('batman')
+  const [searchValue,setSearchValue] = useState('avengers')
   const [loading, setLoading] = useState("")
   
   return (
