@@ -7,6 +7,7 @@ import './movie.css'
 function Movie(props) {
 
     const [movie, setMovie] = useState({})
+    const[loading,setLoading] = useState(false)
     const urlHistory = useParams()
 
     useEffect(() => {
@@ -15,7 +16,7 @@ function Movie(props) {
             url: `https://www.omdbapi.com/?apikey=d5338ddc&i=${urlHistory.id}`,
         };
         axios.request(options).then(function (response) {
-
+                setLoading(true)
             setMovie((prevValue) => {
                 return response.data;
             })
@@ -24,25 +25,30 @@ function Movie(props) {
             console.error(error);
         });
     }, [urlHistory.id])
-
-    return (
-        <div className="single-movie-container">
-            <div className="image-div" >
-                <img className="single-img" src={movie.Poster} alt={movie.Title} />
-            </div>
-            <div className="details">
-                <h2> {movie.Title} </h2> <br />
-                <p> <strong> Plot: </strong> {movie.Plot} </p> 
-                <p> <strong> Starring: </strong>{" " + movie.Actors}</p>
-                <p> <strong> Director: </strong> {" " + movie.Director} </p>
-                <p> <strong>Language:</strong> {movie.Language} </p>
-                <p> <strong> BoxOffice: </strong> {" " + movie.BoxOffice} </p>
-                <p> <strong> Production: </strong> {" " + movie.Production} </p>
-                <p> <strong>Released Year:</strong> {" " +movie.Realeased} </p>
-                <p> <strong> Runtime: </strong> {" "+ movie.Runtime} </p>
-                <p> <strong> Type: </strong> {" "+ movie.Type} </p>
-            </div>
+function renderUi(){
+    return (<div className="single-movie-container">
+        <div className="image-div" >
+            <img className="single-img" src={movie.Poster} alt={movie.Title} />
         </div>
+        <div className="details">
+            <h2> {movie.Title} </h2> <br />
+            <p> <strong> Plot: </strong> {movie.Plot} </p>
+            <p> <strong> Starring: </strong>{" " + movie.Actors}</p>
+            <p> <strong> Director: </strong> {" " + movie.Director} </p>
+            <p> <strong>Language:</strong> {movie.Language} </p>
+            <p> <strong> BoxOffice: </strong> {" " + movie.BoxOffice} </p>
+            <p> <strong> Production: </strong> {" " + movie.Production} </p>
+            <p> <strong>Released Year:</strong> {" " + movie.Realeased} </p>
+            <p> <strong> Runtime: </strong> {" " + movie.Runtime} </p>
+            <p> <strong> Type: </strong> {" " + movie.Type} </p>
+        </div>
+    </div>)
+}
+    return (
+        <React.Fragment>
+            {loading ? renderUi() : <h2 className="load"> Loading... </h2>}
+        </React.Fragment>
+        
     )
 }
 
