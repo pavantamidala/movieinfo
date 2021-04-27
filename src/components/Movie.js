@@ -46,6 +46,7 @@ function renderUi(){
 }
     return (
         <React.Fragment>
+            <h1> Movie Details</h1>
             {loading ? renderUi() : <h2 className="load"> Loading... </h2>}
         </React.Fragment>
         
